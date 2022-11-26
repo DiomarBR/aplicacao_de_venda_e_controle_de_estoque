@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>favicon_io/favicon.ico</normaloff>favicon_io/favicon.ico</iconset>
+    <normaloff>imagens\favicon.ico</normaloff>imagens\favicon.ico</iconset>
   </property>
   <widget class="QWidget" name="menu_principal">
    <property name="font">

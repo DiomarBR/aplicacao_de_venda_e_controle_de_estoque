@@ -1,17 +1,24 @@
-from PyQt5 import QtCore, QtGui, QtQuickWidgets
+from PyQt5 import uic,QtWidgets
 
-from view.produtos import Ui_MainWindow
+def VoltarInicio():
+    estoque.close()
+    inicial.show()
+    
+def ChamarEstoque():
+    estoque.show()
+    inicial.close()
+    
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+    
+    
+app=QtWidgets.QApplication([])
+inicial=uic.loadUi(r"View\Ui\maingui.ui")
+estoque=uic.loadUi(r"View\Ui\produtos.ui")
+inicial.button_estoque.clicked.connect(ChamarEstoque)
+estoque.inicio.clicked.connect(VoltarInicio)
 
-
+inicial.show()
+app.exec()
 # import sqlite3
 # con = sqlite3.connect("aplicacao_de_venda_e_controle_de_estoque\DataBase\produtos.db")
 # codigo = int(input("Digite o codigo de barras: "))
