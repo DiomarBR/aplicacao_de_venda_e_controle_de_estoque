@@ -6,4 +6,3 @@ class ConexaoSQL:
         db.setDatabaseName("produtos.db")
 
         return db
-    
