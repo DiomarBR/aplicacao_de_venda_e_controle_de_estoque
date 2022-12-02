@@ -75,6 +75,21 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="button_vendas">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(27, 70, 135);</string>
+         </property>
+         <property name="text">
+          <string>Vendas</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>
@@ -202,7 +217,7 @@ background-color: rgb(44, 118, 255);</string>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="cdigo01">
+                <widget class="QLineEdit" name="codigo01">
                  <property name="styleSheet">
                   <string notr="true">background-color: rgb(255, 255, 255);</string>
                  </property>
