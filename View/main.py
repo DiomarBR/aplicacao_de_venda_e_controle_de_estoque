@@ -25,8 +25,8 @@ def ChamarEstoque():
     
 app=QtWidgets.QApplication([])
 inicial=uic.loadUi(r"View\Ui\maingui.ui")
-vendas=uic.loadUi(r"View\Ui\vendas.ui")
-estoque=uic.loadUi(r"View\Ui\produtos.ui")
+# vendas=uic.loadUi(r"View\Ui\vendas.ui")
+estoque=uic.loadUi(r"View\Ui\maingui.ui")
 inicial.button_estoque.clicked.connect(ChamarEstoque)
 inicial.button_vendas.clicked.connect(ChamarVendas)
 vendas.butto_main.clicked.connect(FecharVendas)
@@ -46,7 +46,7 @@ def SalvarDados():
     quantidade = estoque.quantidade.text()
     
     try:
-        banco = sqlite3.connect(r'DataBase\produtos.db')
+        banco = sqlite3.connect(r'produtos.db')
         cursor = banco.cursor()
         cursor.execute(f"INSERT INTO estoque VALUES({codigo1}, {codigo2}, '{nome}', {valor}, {quantidade})")
         banco.commit()
