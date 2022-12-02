@@ -312,7 +312,7 @@ background-color: rgb(44, 118, 255);</string>
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton">
+                <widget class="QPushButton" name="enviar_buton">
                  <property name="minimumSize">
                   <size>
                    <width>20</width>

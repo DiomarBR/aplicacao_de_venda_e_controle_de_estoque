@@ -20,16 +20,21 @@ def ChamarEstoque():
     vendas.close()
     inicial.close()
     
-
+def connect():
+    global conn
+    conn=sqlite3.connect(r"DataBase\produtos.db")
+    
+    global cursor 
+    cursor = conn.cursor()
     
     
 app=QtWidgets.QApplication([])
 inicial=uic.loadUi(r"View\Ui\maingui.ui")
-# vendas=uic.loadUi(r"View\Ui\vendas.ui")
-estoque=uic.loadUi(r"View\Ui\maingui.ui")
+vendas=uic.loadUi(r"View\Ui\vendas.ui")
+estoque=uic.loadUi(r"View\Ui\produtos.ui")
 inicial.button_estoque.clicked.connect(ChamarEstoque)
 inicial.button_vendas.clicked.connect(ChamarVendas)
-vendas.butto_main.clicked.connect(FecharVendas)
+vendas.butto_inicio.clicked.connect(FecharVendas)
 vendas.button_estoque.clicked.connect(ChamarEstoque)
 estoque.inicio.clicked.connect(FecharEstoque)
 estoque.button_vendas.clicked.connect(ChamarVendas)
@@ -45,15 +50,13 @@ def SalvarDados():
     valor = estoque.valor.text()
     quantidade = estoque.quantidade.text()
     
-    try:
-        banco = sqlite3.connect(r'produtos.db')
-        cursor = banco.cursor()
-        cursor.execute(f"INSERT INTO estoque VALUES({codigo1}, {codigo2}, '{nome}', {valor}, {quantidade})")
-        banco.commit()
-    except sqlite3.Error as erro:
-        print('Erro ao inserir dados', erro)
 
-estoque.pushButton.clicked.connect(SalvarDados)
+    cursor.execute(f"INSERT INTO estoque VALUES({codigo1}, {codigo2}, '{nome}', {valor}, {quantidade})")
+    banco.commit()
+
+connect()
+
+estoque.enviar_buton.clicked.connect(SalvarDados)
 
 
 # con = sqlite3.connect("aplicacao_de_venda_e_controle_de_estoque\DataBase\produtos.db")
