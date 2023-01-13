@@ -19,13 +19,7 @@ def ChamarEstoque():
     estoque.show()
     vendas.close()
     inicial.close()
-    
-def connect():
-    global conn
-    conn=sqlite3.connect(r"DataBase\produtos.db")
-    
-    global cursor 
-    cursor = conn.cursor()
+
     
     
 app=QtWidgets.QApplication([])
@@ -44,6 +38,10 @@ app.exec()
 
 
 def SalvarDados():
+    conn=sqlite3.connect(r"DataBase\produtos.db")
+    cursor = conn.cursor()
+    
+    
     codigo1 = estoque.codigo01.text()
     codigo2 = estoque.codigo02.text()
     nome = estoque.nome.text()
@@ -52,10 +50,7 @@ def SalvarDados():
     
 
     cursor.execute(f"INSERT INTO estoque VALUES({codigo1}, {codigo2}, '{nome}', {valor}, {quantidade})")
-    banco.commit()
-
-connect()
-
+    conn.commit()
 estoque.enviar_buton.clicked.connect(SalvarDados)
 
 
